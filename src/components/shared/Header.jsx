@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/DriveElegance-logos_white.png";
 import "./styles/header.css";
 import { FiMenu } from "react-icons/fi";
@@ -18,7 +18,7 @@ const Header = () => {
             {/* large device */}
             <div className="hidden lg:flex items-center justify-between px-10 bg-[#3d3d3d] text-white">
                 <div>
-                    <img className="w-80 h-20 object-cover" src={logo} alt="" />
+                    <Link to='/'><img className="w-80 h-20 object-cover cursor-pointer" src={logo} alt="" /></Link>
                 </div>
                 <div className="flex items-center gap-28 font-medium">
                     <div className="flex gap-10 text-lg">
@@ -35,10 +35,10 @@ const Header = () => {
             {/* medium device */}
             <div className="hidden md:flex items-center justify-between lg:hidden bg-[#3d3d3d] text-white px-10">
                 <div className="flex items-center">
-                    <FiMenu onClick={() => setShowMenu(!showMenu)} className="text-2xl" />
-                    <img className="w-60 h-14 object-cover" src={logo} alt="" />
+                    <FiMenu onClick={() => setShowMenu(!showMenu)} className="text-2xl cursor-pointer" />
+                    <Link to='/'><img className="w-60 h-14 object-cover cursor-pointer" src={logo} alt="" /></Link>
                 </div>
-                <div className={`${showMenu ? 'flex' : 'hidden'} flex-col absolute top-14 bg-[#3d3d3dd3] px-8 py-5 rounded space-y-3`}>
+                <div className={`${showMenu ? 'flex' : 'hidden'} flex-col absolute top-14 bg-[#3d3d3dd3] px-8 py-5 rounded space-y-3 z-10`}>
                     {
                         links
                     }
@@ -51,10 +51,10 @@ const Header = () => {
             {/* small device */}
             <div className="flex md:hidden items-center justify-between lg:hidden bg-[#3d3d3d] text-white px-5">
                 <div className="flex items-center">
-                    <FiMenu onClick={() => setShowMenu(!showMenu)} className="text-2xl" />
-                    <img className="w-60 h-16 object-cover" src={logo} alt="" />
+                    <FiMenu onClick={() => setShowMenu(!showMenu)} className="text-2xl cursor-pointer" />
+                    <Link to='/'><img className="w-60 h-16 object-cover cursor-pointer" src={logo} alt="" /></Link>
                 </div>
-                <div className={`${showMenu ? 'flex' : 'hidden'} flex-col absolute top-16 bg-[#3d3d3dd3] px-8 py-5 rounded space-y-3`}>
+                <div className={`${showMenu ? 'flex' : 'hidden'} flex-col absolute top-16 bg-[#3d3d3dd3] px-8 py-5 rounded space-y-3 z-10`}>
                     {
                         links
                     }
