@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/DriveElegance-logos_white.png";
 const Footer = () => {
     return (
-        <footer className="footer footer-center mt-20 p-10 bg-[#1b1b1b] text-white">
+        <footer className="footer footer-center mt-28 p-10 bg-[#1b1b1b] text-white">
             <aside>
                 <Link to='/'><img className="w-60 h-10 object-cover" src={logo} alt="" /></Link>
                 <p className="font-semibold">

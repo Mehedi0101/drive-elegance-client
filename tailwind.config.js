@@ -8,7 +8,12 @@ export default {
     fontFamily: {
       'jost': ['"Jost"', 'sans-serif']
     },
-    extend: {},
+    extend: {
+      colors: {
+        'primary': '#cc4316',
+        'dark2': '#5c5c5c'
+      }
+    },
   },
   plugins: [require("daisyui")],
 }
