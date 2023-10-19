@@ -1,8 +1,18 @@
 import Proptypes from "prop-types";
 import star from "../../assets/star.png";
+import { useNavigate } from "react-router-dom";
 
 const Product = ({ product,index }) => {
-    const { name, image, brand, type, price, rating } = product;
+    const { _id, name, image, brand, type, price, rating } = product;
+    const navigate = useNavigate();
+
+    const handleDetails = (id) => {
+        navigate(`/product-details/${id}`);
+    }
+
+    const handleUpdate = (id) => {
+        navigate(`/product-update/${id}`);
+    }
 
     return (
         <div>
@@ -20,8 +30,8 @@ const Product = ({ product,index }) => {
                         <p className='font-bold text-primary text-base lg:text-lg'>{rating}</p>
                     </div>
                     <div className='flex gap-5 text-lg lg:text-xl mt-5'>
-                        <button className='px-5 py-2 border-2 border-primary bg-primary rounded text-white active:scale-95 transition-transform w-full font-medium mb-3'>Details</button>
-                        <button className='px-5 py-2 border-2 border-primary bg-transparent rounded text-primary active:scale-95 transition-transform w-full font-medium mb-3'>Update</button>
+                        <button onClick={() => handleDetails(_id)} className='px-5 py-2 border-2 border-primary bg-primary rounded text-white active:scale-95 transition-transform w-full font-medium mb-3'>Details</button>
+                        <button onClick={() => handleUpdate(_id)} className='px-5 py-2 border-2 border-primary bg-transparent rounded text-primary active:scale-95 transition-transform w-full font-medium mb-3'>Update</button>
                     </div>
                 </div>
             </div>
