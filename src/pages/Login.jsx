@@ -49,7 +49,17 @@ const Login = () => {
     const handleGoogle = e => {
         e.preventDefault();
         googleLogin()
-            .then(() => {
+            .then(result => {
+
+                const newUser = { email: result.user.email, cart: [] };
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newUser)
+                })
+
                 navigate(state || '/');
                 Store.addNotification({
                     title: "Logged in successfully",
