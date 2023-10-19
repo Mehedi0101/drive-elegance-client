@@ -1,6 +1,7 @@
 import Swal from 'sweetalert2';
 
 const AddProduct = () => {
+
     const handleAddProduct = e => {
         e.preventDefault();
         const form = e.target;
@@ -30,6 +31,7 @@ const AddProduct = () => {
                         title: 'Success',
                         text: `${name} successfully added`,
                     })
+                    form.reset();
                 }
                 else {
                     Swal.fire({
@@ -57,8 +59,8 @@ const AddProduct = () => {
                     <option>Toyota</option>
                     <option>BMW</option>
                     <option>Mercedes-Benz</option>
-                    <option>Honda</option>
                     <option>Volkswagen</option>
+                    <option>Honda</option>
                 </select>
                 <br />
 
