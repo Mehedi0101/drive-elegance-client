@@ -14,8 +14,6 @@ const Slider = () => {
         .then(data => setSliderData(data.slice(0,3)));
     },[])
 
-    console.log(sliderData);
-
     return (
         <div>
             <Swiper

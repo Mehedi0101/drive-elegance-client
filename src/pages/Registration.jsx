@@ -16,7 +16,7 @@ const Registration = () => {
     const [alreadyExistError, setAlreadyExistError] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const { state } = useLocation();
-
+    
     const handleRegister = e => {
         e.preventDefault();
         setPasswordError('');
@@ -26,6 +26,7 @@ const Registration = () => {
         const name = form.get('name');
         const email = form.get('email');
         const password = form.get('password');
+
 
         if (password.length < 6) {
             setPasswordError('password should contain at least 6 characters');
@@ -43,7 +44,7 @@ const Registration = () => {
         }
 
         signUpEmailPassword(email, password)
-            .then(() => {
+            .then( () => {
                 Store.addNotification({
                     title: "Success",
                     message: "Registered Successfully",
@@ -62,6 +63,16 @@ const Registration = () => {
                     .then(() => { })
                     .catch(() => { })
 
+                
+                const newUser = { email, cart: [] };
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newUser)
+                })
+
                 logoutUser();
                 navigate('/login');
             })
@@ -74,8 +85,18 @@ const Registration = () => {
     const handleGoogle = e => {
         e.preventDefault();
         googleLogin()
-            .then(() => {
+            .then( result => {
+                const newUser = { email: result.user.email, cart: [] };
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newUser)
+                })
+
                 navigate(state || '/');
+
                 Store.addNotification({
                     title: "Logged in successfully",
                     type: "success",
