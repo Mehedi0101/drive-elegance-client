@@ -1,10 +1,14 @@
+import { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../providers/AuthProvider";
 
 const ProductUpdate = () => {
     document.title = 'Update';
     
     const { _id: userId, name: userName, image: userImage, brand: userBrand, type: userType, price: userPrice, rating: userRating } = useLoaderData();
+
+    const {dark} = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -31,7 +35,7 @@ const ProductUpdate = () => {
 
                 const updatedProduct = { name, image, brand, type, price, rating };
 
-                fetch(`http://localhost:5000/products-id/${userId}`, {
+                fetch(`https://drive-elegance-serverside.vercel.app/products-id/${userId}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
@@ -57,14 +61,14 @@ const ProductUpdate = () => {
         <div>
             <div className="pt-20 pb-10 flex flex-col justify-center items-center">
                 <form onSubmit={handleUpdate} className="xl:p-14 lg:p-12 md:p-10 p-8 rounded text-sm md:text-base max-w-[90%] mx-auto">
-                    <h2 className="font-bold text-3xl md:text-4xl mb-10">Update: <span className="text-primary">{userName}</span></h2>
-                    <input className="outline-none border-b-2 border-[#C5C5C5] font-medium placeholder:text-dark2 placeholder:font-medium py-1 max-w-full w-[400px] mb-8" type="text" name="name" id="name" placeholder="Name" defaultValue={userName} required />
+                    <h2 className={`font-bold text-3xl md:text-4xl mb-10 ${dark ? 'text-white' : 'text-dark1'}`}>Update: <span className="text-primary">{userName}</span></h2>
+                    <input className={`outline-none border-b-2  font-medium placeholder:font-medium py-1 max-w-full w-[400px] mb-8 bg-transparent ${dark ? 'placeholder:text-[#ffffff80] border-[#6e6e6e] caret-white text-white' : 'placeholder:text-dark2 border-[#C5C5C5] text-dark1'}`} type="text" name="name" id="name" placeholder="Name" defaultValue={userName} required />
                     <br />
 
-                    <input className="outline-none border-b-2 border-[#C5C5C5] font-medium placeholder:text-dark2 placeholder:font-medium py-1 max-w-full w-[400px] mb-8" type="text" name="image" id="image" placeholder="Image URL" defaultValue={userImage} required />
+                    <input className={`outline-none border-b-2 font-medium placeholder:font-medium py-1 max-w-full w-[400px] mb-8 bg-transparent ${dark ? 'placeholder:text-[#ffffff80] border-[#6e6e6e] caret-white text-white' : 'placeholder:text-dark2 border-[#C5C5C5] text-dark1'}`} type="text" name="image" id="image" placeholder="Image URL" defaultValue={userImage} required />
                     <br />
 
-                    <select className="outline-none border-b-2 border-[#C5C5C5] font-medium placeholder:text-dark2 placeholder:font-medium py-1 max-w-full w-[400px] mb-8 bg-transparent cursor-pointer" defaultValue={userBrand} name="brand" id="brand">
+                    <select className={`outline-none border-b-2 font-medium placeholder:font-medium py-1 max-w-full w-[400px] mb-8 bg-transparent cursor-pointer ${dark ? 'border-[#6e6e6e] text-white bg-[#202124]' : 'border-[#C5C5C5] text-dark1 bg-white'}`} defaultValue={userBrand} name="brand" id="brand">
                         <option disabled>Select a Brand</option>
                         <option>Ford</option>
                         <option>Toyota</option>
@@ -75,7 +79,7 @@ const ProductUpdate = () => {
                     </select>
                     <br />
 
-                    <select className="outline-none border-b-2 border-[#C5C5C5] font-medium placeholder:text-dark2 placeholder:font-medium py-1 max-w-full w-[400px] mb-8 bg-transparent cursor-pointer" defaultValue={userType} name="type" id="type">
+                    <select className={`outline-none border-b-2 font-medium placeholder:font-medium py-1 max-w-full w-[400px] mb-8 bg-transparent cursor-pointer ${dark ? 'border-[#6e6e6e] text-white bg-[#202124]' : 'border-[#C5C5C5] text-dark1 bg-white'}`} defaultValue={userType} name="type" id="type">
                         <option disabled>Select a Type</option>
                         <option>Sedan</option>
                         <option>SUV</option>
@@ -87,10 +91,10 @@ const ProductUpdate = () => {
                     </select>
                     <br />
 
-                    <input className="outline-none border-b-2 border-[#C5C5C5] font-medium placeholder:text-dark2 placeholder:font-medium py-1 max-w-full w-[400px] mb-8" type="text" name="price" id="price" placeholder="Price (USD)" defaultValue={userPrice} required />
+                    <input className={`outline-none border-b-2 font-medium placeholder:font-medium py-1 max-w-full w-[400px] mb-8 bg-transparent ${dark ? 'placeholder:text-[#ffffff80] border-[#6e6e6e] caret-white text-white' : 'placeholder:text-dark2 border-[#C5C5C5] text-dark1'}`} type="text" name="price" id="price" placeholder="Price (USD)" defaultValue={userPrice} required />
                     <br />
 
-                    <input className="outline-none border-b-2 border-[#C5C5C5] font-medium placeholder:text-dark2 placeholder:font-medium py-1 max-w-full w-[400px] mb-8" type="text" name="rating" id="rating" placeholder="Rating" defaultValue={userRating} required />
+                    <input className={`outline-none border-b-2 font-medium placeholder:font-medium py-1 max-w-full w-[400px] mb-8 bg-transparent ${dark ? 'placeholder:text-[#ffffff80] border-[#6e6e6e] caret-white text-white' : 'placeholder:text-dark2 border-[#C5C5C5] text-dark1'}`} type="text" name="rating" id="rating" placeholder="Rating" defaultValue={userRating} required />
                     <br />
 
                     <button className='px-5 py-2 bg-primary rounded text-white active:scale-95 transition-transform w-full font-medium mb-3'>Update</button>

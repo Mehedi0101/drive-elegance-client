@@ -19,22 +19,22 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                loader: () => fetch('http://localhost:5000/brands'),
+                loader: () => fetch('https://drive-elegance-serverside.vercel.app/brands'),
                 element: <Home></Home>
             },
             {
                 path: '/brands/:name',
-                loader: ({params}) => fetch(`http://localhost:5000/products-brand/${params.name}`),
+                loader: ({params}) => fetch(`https://drive-elegance-serverside.vercel.app/products-brand/${params.name}`),
                 element: <BrandProducts></BrandProducts>,
             },
             {
                 path: '/product-details/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/products-id/${params.id}`),
+                loader: ({params}) => fetch(`https://drive-elegance-serverside.vercel.app/products-id/${params.id}`),
                 element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>
             },
             {
                 path: '/product-update/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/products-id/${params.id}`),
+                loader: ({params}) => fetch(`https://drive-elegance-serverside.vercel.app/products-id/${params.id}`),
                 element: <PrivateRoute><ProductUpdate></ProductUpdate></PrivateRoute>
             },
             {
@@ -51,8 +51,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/cart',
-                loader: () => fetch('http://localhost:5000/products/'),
-                element: <Cart></Cart>
+                loader: () => fetch('https://drive-elegance-serverside.vercel.app/products/'),
+                element: <PrivateRoute><Cart></Cart></PrivateRoute>
             }
         ]
     }
