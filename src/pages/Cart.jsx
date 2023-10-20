@@ -5,6 +5,8 @@ import { BsFillTrash3Fill } from "react-icons/bs";
 import Swal from "sweetalert2";
 
 const Cart = () => {
+    document.title = 'My Cart';
+    
     const { currentUser } = useContext(AuthContext);
     const [cart, setCart] = useState([]);
     const allProducts = useLoaderData();

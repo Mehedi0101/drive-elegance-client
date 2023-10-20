@@ -4,7 +4,7 @@ import Product from "../components/brandProducts/Product";
 
 const BrandProducts = () => {
     const products = useLoaderData();
-
+    document.title = `${products?.[0].brand || 'Products'}`;
     return (
         <>
             <Slider></Slider>

@@ -11,6 +11,8 @@ const ProductDetails = () => {
     const { currentUser } = useContext(AuthContext);
 
     const { _id, name, image, brand, type, price, rating, description } = useLoaderData();
+    document.title = `${name}`;
+    
     const navigate = useNavigate();
 
     const handleCart = () => {

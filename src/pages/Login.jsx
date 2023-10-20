@@ -7,6 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
     document.title = "Login";
+    
     const [showPassword, setShowPassword] = useState(false);
     const { loginEmailPassword, googleLogin, setLoading } = useContext(AuthContext);
     const [credentialsError, setCredentialsError] = useState(false);
