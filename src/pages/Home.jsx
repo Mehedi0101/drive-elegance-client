@@ -4,6 +4,7 @@ import OurTeam from "../components/home/OurTeam";
 import Services from "../components/home/Services";
 
 const Home = () => {
+    document.title = 'DriveElegance';
     return (
         <div>
             <Banner></Banner>

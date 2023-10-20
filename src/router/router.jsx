@@ -9,11 +9,13 @@ import BrandProducts from "../pages/BrandProducts";
 import ProductDetails from "../pages/ProductDetails";
 import Cart from "../pages/Cart";
 import ProductUpdate from "../pages/ProductUpdate";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -23,7 +25,7 @@ const router = createBrowserRouter([
             {
                 path: '/brands/:name',
                 loader: ({params}) => fetch(`http://localhost:5000/products-brand/${params.name}`),
-                element: <BrandProducts></BrandProducts>
+                element: <BrandProducts></BrandProducts>,
             },
             {
                 path: '/product-details/:id',

@@ -2,6 +2,8 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const ProductUpdate = () => {
+    document.title = 'Update';
+    
     const { _id: userId, name: userName, image: userImage, brand: userBrand, type: userType, price: userPrice, rating: userRating } = useLoaderData();
 
     const navigate = useNavigate();
@@ -9,7 +11,7 @@ const ProductUpdate = () => {
     const handleUpdate = e => {
         e.preventDefault();
         Swal.fire({
-            title: `Are you sure want to update this product?`,
+            title: `Are you sure want to update ${userName}?`,
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
@@ -41,7 +43,7 @@ const ProductUpdate = () => {
                         if (data.matchedCount > 0) {
                             Swal.fire(
                                 'Updated!',
-                                `This product has been updated successfully.`,
+                                `${userName} has been updated successfully.`,
                                 'success'
                             )
                             navigate(`/product-details/${userId}`)

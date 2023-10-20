@@ -4,6 +4,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Slider = () => {
     const [sliderData, setSliderData] = useState([]);
@@ -38,7 +39,7 @@ const Slider = () => {
                             <div className="max-w-xl">
                                 <h1 className="mb-5 lg:text-5xl md:text-4xl text-3xl font-bold">{sliderData?.[0]?.name}</h1>
                                 <p className="mb-5 md:text-base text-sm">{sliderData?.[0]?.description.slice(0,200)}...</p>
-                                <button className="bg-[#cc4316] px-5 py-2 rounded active:scale-95 transition-transform font-medium">Show Details</button>
+                                <Link to={`/product-details/${sliderData?.[0]?._id}`}><button className="bg-[#cc4316] px-5 py-2 rounded active:scale-95 transition-transform font-medium">Show Details</button></Link>
                             </div>
                         </div>
                     </div>
@@ -51,7 +52,7 @@ const Slider = () => {
                             <div className="max-w-xl">
                                 <h1 className="mb-5 lg:text-5xl md:text-4xl text-3xl font-bold">{sliderData?.[1]?.name}</h1>
                                 <p className="mb-5 md:text-base text-sm">{sliderData?.[1]?.description.slice(0,200)}...</p>
-                                <button className="bg-[#cc4316] px-5 py-2 rounded active:scale-95 transition-transform font-medium">Show Details</button>
+                                <Link to={`/product-details/${sliderData?.[1]?._id}`}><button className="bg-[#cc4316] px-5 py-2 rounded active:scale-95 transition-transform font-medium">Show Details</button></Link>
                             </div>
                         </div>
                     </div>
@@ -64,7 +65,7 @@ const Slider = () => {
                             <div className="max-w-xl">
                                 <h1 className="mb-5 lg:text-5xl md:text-4xl text-3xl font-bold">{sliderData?.[2]?.name}</h1>
                                 <p className="mb-5 md:text-base text-sm">{sliderData?.[2]?.description.slice(0,200)}...</p>
-                                <button className="bg-[#cc4316] px-5 py-2 rounded active:scale-95 transition-transform font-medium">Show Details</button>
+                                <Link to={`/product-details/${sliderData?.[2]?._id}`}><button className="bg-[#cc4316] px-5 py-2 rounded active:scale-95 transition-transform font-medium">Show Details</button></Link>
                             </div>
                         </div>
                     </div>
