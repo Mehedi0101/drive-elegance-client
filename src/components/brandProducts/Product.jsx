@@ -1,10 +1,13 @@
 import Proptypes from "prop-types";
 import star from "../../assets/star.png";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Product = ({ product,index }) => {
     const { _id, name, image, brand, type, price, rating } = product;
     const navigate = useNavigate();
+    const {dark} = useContext(AuthContext);
 
     const handleDetails = (id) => {
         navigate(`/product-details/${id}`);
@@ -21,10 +24,10 @@ const Product = ({ product,index }) => {
                     <img src={image} alt="" />
                 </div>
                 <div className='w-full md:w-1/2 md:text-left text-center'>
-                    <h3 className="text-2xl lg:text-3xl font-semibold">{name}</h3>
+                    <h3 className={`text-2xl lg:text-3xl font-semibold ${dark ? 'text-white' : 'text-dark1'}`}>{name}</h3>
                     <p className='text-lg lg:text-xl mt-5 text-primary font-bold'>{type}</p>
-                    <p className='text-lg lg:text-xl mt-5 text-dark2'><span className='font-bold text-dark1'>Manufacturer:</span> {brand}</p>
-                    <p className='text-lg lg:text-xl mt-2 text-dark2'><span className='text-dark1 font-bold'>Price:</span> ${price}</p>
+                    <p className={`text-lg lg:text-xl mt-5 ${dark ? 'text-[#ffffffbe]' : 'text-dark2'}`}><span className={`${dark ? 'text-white' : 'text-dark1'} font-bold`}>Manufacturer:</span> {brand}</p>
+                    <p className={`text-lg lg:text-xl mt-2 ${dark ? 'text-[#ffffffbe]' : 'text-dark2'}`}><span className={`${dark ? 'text-white' : 'text-dark1'} font-bold`}>Price:</span> ${price}</p>
                     <div className='flex items-center gap-2 mt-5 md:justify-normal justify-center'>
                         <img className='w-5' src={star} alt="" />
                         <p className='font-bold text-primary text-base lg:text-lg'>{rating}</p>
