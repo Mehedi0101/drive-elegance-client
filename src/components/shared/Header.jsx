@@ -8,16 +8,16 @@ import { Store } from "react-notifications-component";
 import defaultUser from "../../assets/default-user.png";
 
 const Header = () => {
-    const links = <>
-        <NavLink onClick={() => setShowMenu(false)} to='/'>Home</NavLink>
-        <NavLink onClick={() => setShowMenu(false)} to='/add-product'>Add Product</NavLink>
-        <NavLink onClick={() => setShowMenu(false)} to='/my-cart'>My Cart</NavLink>
-    </>;
-
     const [showMenu, setShowMenu] = useState(false);
 
     const { currentUser, logoutUser } = useContext(AuthContext);
     const [showUser, setShowUser] = useState(false);
+
+    const links = <>
+        <NavLink onClick={() => setShowMenu(false)} to='/'>Home</NavLink>
+        <NavLink onClick={() => setShowMenu(false)} to='/add-product'>Add Product</NavLink>
+        <NavLink onClick={() => setShowMenu(false)} to='/cart'>My Cart</NavLink>
+    </>;
 
     const navigate = useNavigate();
 
