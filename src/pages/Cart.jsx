@@ -13,7 +13,7 @@ const Cart = () => {
 
     useEffect(() => {
         if (currentUser) {
-            fetch(`https://drive-elegance-serverside.vercel.app/users/${currentUser.email}`)
+            fetch(`https://drive-elegance-serverside-azure.vercel.app/users/${currentUser.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setCart(allProducts.filter(element => data.cart.includes(element._id)));
@@ -33,14 +33,14 @@ const Cart = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 if (currentUser?.email) {
-                    fetch(`https://drive-elegance-serverside.vercel.app/users/${currentUser.email}`)
+                    fetch(`https://drive-elegance-serverside-azure.vercel.app/users/${currentUser.email}`)
                         .then(res => res.json())
                         .then(data => {
                             const user = data;
                             console.log(user);
                             user.cart = user.cart.filter(id => id !== productId)
 
-                            fetch(`https://drive-elegance-serverside.vercel.app/users/${currentUser.email}`, {
+                            fetch(`https://drive-elegance-serverside-azure.vercel.app/users/${currentUser.email}`, {
                                 method: 'PUT',
                                 headers: {
                                     'content-type': 'application/json'

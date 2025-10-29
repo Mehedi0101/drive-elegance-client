@@ -21,7 +21,7 @@ const AddProduct = () => {
 
         const newProduct = { name, image, brand, type, price, rating, description }
 
-        fetch('https://drive-elegance-serverside.vercel.app/products', {
+        fetch('https://drive-elegance-serverside-azure.vercel.app/products', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -35,7 +35,7 @@ const ProductUpdate = () => {
 
                 const updatedProduct = { name, image, brand, type, price, rating };
 
-                fetch(`https://drive-elegance-serverside.vercel.app/products-id/${userId}`, {
+                fetch(`https://drive-elegance-serverside-azure.vercel.app/products-id/${userId}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'

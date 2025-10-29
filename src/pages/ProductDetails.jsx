@@ -17,14 +17,14 @@ const ProductDetails = () => {
 
     const handleCart = () => {
         if (currentUser?.email) {
-            fetch(`https://drive-elegance-serverside.vercel.app/users/${currentUser.email}`)
+            fetch(`https://drive-elegance-serverside-azure.vercel.app/users/${currentUser.email}`)
                 .then(res => res.json())
                 .then(data => {
                     const user = data;
                     if (!user.cart.includes(_id)) {
                         user.cart.push(_id);
 
-                        fetch(`https://drive-elegance-serverside.vercel.app/users/${currentUser.email}`, {
+                        fetch(`https://drive-elegance-serverside-azure.vercel.app/users/${currentUser.email}`, {
                             method: 'PUT',
                             headers: {
                                 'content-type': 'application/json'

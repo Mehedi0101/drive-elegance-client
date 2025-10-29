@@ -10,7 +10,7 @@ const Slider = () => {
     const [sliderData, setSliderData] = useState([]);
 
     useEffect(() => {
-        fetch('https://drive-elegance-serverside.vercel.app/products')
+        fetch('https://drive-elegance-serverside-azure.vercel.app/products')
         .then(res => res.json())
         .then(data => setSliderData(data.slice(0,3)));
     },[])

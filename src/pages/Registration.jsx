@@ -66,7 +66,7 @@ const Registration = () => {
 
                 
                 const newUser = { email, cart: [] };
-                fetch('https://drive-elegance-serverside.vercel.app/users', {
+                fetch('https://drive-elegance-serverside-azure.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -88,7 +88,7 @@ const Registration = () => {
         googleLogin()
             .then( result => {
                 const newUser = { email: result.user.email, cart: [] };
-                fetch('https://drive-elegance-serverside.vercel.app/users', {
+                fetch('https://drive-elegance-serverside-azure.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
